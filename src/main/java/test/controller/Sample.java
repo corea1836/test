@@ -12,19 +12,24 @@ public class Sample {
 
     @GetMapping("/hello")
     public String hello() {
-        String result = null;
-        try {
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://27.96.135.218:3306/test",
-                    "readonly",
-                    "0000"
-            );
-            if(con != null) {
-                result = con.toString();
-            }
-        } catch (SQLException e) {
-            result = e.toString();
-        }
-        return result;
+        return "Hello World!";
     }
+
+//    @GetMapping("/hello")
+//    public String hello() {
+//        String result = null;
+//        try {
+//            Connection con = DriverManager.getConnection(
+//                    "jdbc:mysql://27.96.135.218:3306/test",
+//                    "readonly",
+//                    "0000"
+//            );
+//            if(con != null) {
+//                result = con.toString();
+//            }
+//        } catch (SQLException e) {
+//            result = e.toString();
+//        }
+//        return result;
+//    }
 }
