@@ -37,5 +37,14 @@ jobs:
       with:
         name: cicdsample
         path: build/libs/*.jar
-
+  deploy:
+      needs: build
+      runs-on: self-hosted
+      steps:
+        - name: Download artifact
+          uses: actions/download-artifact@v2
+          with:
+            name: cicdsample
+        - name: SCP transfer
+          run: scp -P 9001 *.jar root@106.10.33.54:~/cicd
     
